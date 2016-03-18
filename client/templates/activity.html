@@ -1,0 +1,24 @@
+<ion-view view-title="Δραστηριότητα Χρηστών">  
+ 
+   <div class="float-button">
+  
+    <a ui-sref="add-trip" ng-click="openNewMessageModal()" class="content">
+      <i class="ion-ios-compose"> </i>
+    </a>
+ 
+</div>
+  <ion-content overflow-scroll="true"> 
+      <div class="list">
+        <ion-item
+                class="item-feed item-remove-animate item-avatar item-icon-right"
+                ng-repeat="activity in activities">
+                <img ng-src="https://twitter.com/{{activity.account_name}}/profile_image?size=normal"/>
+                <h2 ng-bind-html="activity.text | linky:'_blank'"></h2>
+                <span class="last-message-timestamp">{{activity.created_at | calendar}}</span>
+        </ion-item>
+      </div>
+
+
+  </ion-content>
+
+</ion-view>

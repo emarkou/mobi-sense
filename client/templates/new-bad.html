@@ -1,0 +1,131 @@
+<ion-modal-view ng-controller="NewBadCtrl">
+  <ion-header-bar>
+    <h1 class="title">Τι δεν μου άρεσε</h1>
+   
+  </ion-header-bar>
+
+  <ion-content>
+    <!-- grammh -->
+    <div class="item item-input-inset">
+      <ion-label><span ng-bind="routeOrStopLabel"></span></ion-label>
+      <ion-label><span ng-bind="routeOrStopText"></span></ion-label>
+    </div> 
+
+    <div class="row">
+    <a class="item item-avatar" href="#">
+          <img src="https://cdn4.iconfinder.com/data/icons/ballicons-2-free/100/669347-watch-128.png"> </a>
+      <!--  <div class="col"> -->
+      <!-- <a class="item item-avatar" href="#">
+          <img src="https://cdn4.iconfinder.com/data/icons/ballicons-2-free/100/669347-watch-128.png"> </a> -->
+          <ion-radio ng-model="data.field" value="καθυστέρησε">Καθυστέρησε!</ion-radio></div>
+        <div class="row">
+	<a class="item item-avatar" href="#">
+          <img src="https://cdn2.iconfinder.com/data/icons/free-basic-icon-set-2/300/10-128.png"></a>
+        <!--<div class="col"> -->       
+      <!-- <a class="item item-avatar" href="#">
+          <img src="https://cdn4.iconfinder.com/data/icons/ballicons-2-free/100/669347-watch-128.png"></a> --> 
+          <ion-radio ng-model="data.field" value="δεν σταμάτησε">Δεν σταμάτησε</ion-radio>
+      </div>
+        
+      
+    
+
+    <div class="row">
+    <a class="item item-avatar" href="#">
+          <img src="https://cdn3.iconfinder.com/data/icons/10con/512/traffic_stop-128.png"> </a>
+      <!--  <div class="col"> -->
+      <!-- <a class="item item-avatar" href="#">
+          <img src="https://cdn4.iconfinder.com/data/icons/ballicons-2-free/100/669347-watch-128.png"> </a> -->
+          <ion-radio ng-model="data.field" value="η γραμμή δεν υπάρχει πλέον">Η γραμμή είναι ανενεργή</ion-radio></div>
+<div class="row">
+          <a class="item item-avatar" href="#">
+          <img src="https://cdn0.iconfinder.com/data/icons/kameleon-free-pack-rounded/110/Bus-128.png"></a>
+       <!-- <div class="col">-->       
+      <!-- <a class="item item-avatar" href="#">
+          <img src="https://cdn4.iconfinder.com/data/icons/ballicons-2-free/100/669347-watch-128.png"></a> --> 
+          <ion-radio ng-model="data.field" value="δεν εξυπηρετεί καλά τις περιοχές από όπου περνάει">Δεν εξυπηρετεί καλά τις περιοχές από όπου περνάει</ion-radio>
+    </div>
+        
+      
+   
+      
+    <div class="row">
+    <a class="item item-avatar" href="#">
+          <img src="https://cdn3.iconfinder.com/data/icons/ballicons-reloaded-free/512/icon-59-128.png"> </a>
+   <!-- <div class="col">-->
+      <!-- <a class="item item-avatar" href="#">
+          <img src="https://cdn3.iconfinder.com/data/icons/ballicons-reloaded-free/512/icon-59-128.png"> </a> -->
+          <ion-radio ng-model="data.field" value="είχε πολύ κρύο/ζέστη">Είχε πολύ κρύο/ζέστη</ion-radio></div>
+<div class="row">
+          <a class="item item-avatar" href="#">
+          <img src="https://cdn3.iconfinder.com/data/icons/social-icons-5/128/Dislike.png"> </a>
+          
+         <!-- <div class="col">-->          
+     <!-- <a class="item item-avatar" href="#">
+          <img src="https://cdn0.iconfinder.com/data/icons/kameleon-free-pack-rounded/110/Bus-128.png"> </a> -->
+           <ion-radio ng-model="data.field" value="ο οδηγός δεν ήταν εξυπηρετικός">Ο οδηγός δεν ήταν εξυπηρετικός</ion-radio> </div>
+   
+
+    <div class="row">
+    <a class="item item-avatar" href="#">
+          <img src="https://cdn2.iconfinder.com/data/icons/dellipack/128/people.png"></a>
+   <!--<div class="col">-->
+          <!--<a class="item item-avatar" href="#">
+          <img src="https://cdn0.iconfinder.com/data/icons/kameleon-free-pack-rounded/110/Bus-128.png"></a>-->
+           <ion-radio ng-model="data.field" value="υπήρχε συνωστισμός">Υπήρχε συνωστισμός</ion-radio> </div>
+<div class="row">
+           <a class="item item-avatar" href="#">
+          <img src="https://cdn2.iconfinder.com/data/icons/domestic-and-commercial-cleaning-icon-set/128/sponge_2__.png"></a>
+         <!-- <div class="col">-->
+           <!--  <a class="item item-avatar" href="#">
+          <img src="https://cdn2.iconfinder.com/data/icons/domestic-and-commercial-cleaning-icon-set/128/sponge_2__.png"></a> -->
+          <ion-radio ng-model="data.field" value="χρειάζεται καθαρισμό">Ήταν βρώμικο</ion-radio>
+          </div>
+    
+    <!-- epilogh mesou 
+      <div class="list">
+
+
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Μέσο:
+          </div>
+          <select ng-model="data.mean">
+            <option selected>Μετρό</option>
+            <option>Λεωφορείο</option>
+            <option>Τραμ</option>
+            <option>Προαστιακός</option>
+          </select>
+        </label>
+
+      </div>
+    -->
+
+<!-- epilogh vathmologias -->
+
+<!--<div class="item range">
+  <i class="icon ion-sad"></i>
+  <input type="range" name="rating" ng-model="data.rating" min="0" max="5" value="3" required>
+  <i class="icon ion-happy"></i>
+</div>-->
+
+
+
+   <div class="row">
+      <div class="col">
+        <button ng-click="sendMessage()" class="button button-full button-balanced">
+          Υποβολή
+        </button>
+      </div>
+      <div class="col">
+        <button ng-click="hideModal()" class="button button-full button-assertive">
+          Ακύρωση
+        </button>
+      </div>
+      </div>
+    </ion-content>
+
+  
+</ion-modal-view>
+
+

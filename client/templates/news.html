@@ -1,0 +1,19 @@
+
+<ion-view view-title="Συγκοινωνίες Αθηνών">  
+  <!-- <ion-nav-buttons side="right">
+    <button ng-click="openNewMessageModal()" class="button button-clear button-positive button-icon ion-ios-compose-outline">Νέο μήνυμα</button>
+  </ion-nav-buttons> -->
+  <ion-content overflow-scroll="true"> 
+      <div class="list">
+        <ion-item
+                class="item-feed item-remove-animate item-avatar item-icon-right"
+                ng-repeat="newsfeed in newsfeeds">
+               <!-- <img ng-src="https://twitter.com/{{newsfeed.account_name}}/profile_image?size=normal"/>-->
+		<img ng-src="http://www.businessnews.gr/sites/default/files/styles/scalecrop_870x530/public/sa-logo.jpg?itok=oRpxAe6h0"/>
+                <h2 ng-bind-html="newsfeed.text | linky:'_blank'"></h2>
+                <span class="last-message-timestamp">{{newsfeed.created_at | calendar}}</span>
+        </ion-item>
+      </div>
+
+  </ion-content>
+</ion-view>

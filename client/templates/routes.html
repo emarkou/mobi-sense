@@ -1,0 +1,92 @@
+<ion-view view-title="Διαδρομές">  
+  
+  <ion-nav-buttons side="left">
+    <button ng-click="toggle_search_focus()" class="button button-clear button-positive button-icon ion-android-arrow-back" ng-show="search_focus"></button>
+  </ion-nav-buttons>
+
+<div class="float-button-pos">
+  
+    <a ui-sref="add-trip" ng-click="ShowModal1()" class="content">
+      <i class="ion-happy"> </i>
+    </a>
+ 
+</div>
+
+<div class="float-button-neg">
+  
+    <a ui-sref="add-trip" ng-click="ShowModal2()" class="content">
+      <i class="ion-sad"> </i>
+    </a>
+ 
+</div>
+
+<div class="float-button-idea">
+  
+    <a ui-sref="add-trip" ng-click="ShowModal3()" class="content">
+      <i class="ion-ios-lightbulb"> </i>
+    </a>
+ 
+</div>
+
+  <ion-content scroll="false">
+
+    <ion-scroll direction="y" style="width:100%;height:100%;overflow-y:scroll" delegate-handle="myScroll" scrollbar-y="true">
+        <div class="list list-inset" ng-show="!search_focus">
+          <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input id="routeSearch" type="search" ng-model="search.text" placeholder="Search">
+          </label>
+        </div>      
+        <div class="list" ng-show="!search_focus" style="width:100%;height:70%;">          
+            <ion-item
+                    ng-repeat="route in routes"                            
+                    ng-click="routeClicked($index, route)"
+                    ng-dblclick="toggle_search_focus(route.route_id)"
+                    ng-class="{ 'selected-route': $index == selectedRoute }"
+                    class="item-chat item-remove-animate item-avatar item-icon-right"
+                    type="item-text-wrap">                    
+                    <h2>{{route.route_short_name}} {{route.route_long_name}}</h2>
+                    <p>Στάσεις: {{route.stopsNumber}}</p>
+                    <i class="icon ion-chevron-right icon-accessory"></i> 
+            </ion-item>          
+        </div>
+
+      <div id="stops" ng-show="search_focus">
+        <div class="line-header">
+          {{route.route_short_name}} {{route.route_long_name}} 
+        </div>    
+        <div
+                ng-repeat="stop in stops"
+                ng-class="{ 'selected-route': $index == selectedStop }"
+                ng-click="stopClicked($index, route, stop)"
+                class="timeline"
+                type="item-text-wrap"
+                href="#">
+          {{stop.stop_name}}
+        </div>
+      </div>
+    </ion-scroll>
+
+<!--    <div class="row">
+      <div class="col">
+        <button ng-click="ShowModal1()" class="button button-full button-balanced">
+          Τι μου άρεσε
+        </button>
+      </div>
+      <div class="col">
+        <button ng-click="ShowModal2()" class="button button-full button-assertive">
+          Τι δεν μου άρεσε
+        </button>
+      </div>
+</div>
+      <div class="row">
+<div class="col"></div>
+        <button ng-click="ShowModal3()" class="button button-full button-positive">
+          Τι θα πρότεινα
+        </button>
+      </div> -->
+    
+
+  </ion-content>
+
+</ion-view>

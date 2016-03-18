@@ -1,0 +1,58 @@
+<ion-modal-view ng-controller="NewIdeaCtrl">
+  <ion-header-bar>
+    <h1 class="title">Ιδέα</h1>
+<!--    <div class="buttons">
+      <button class="button button-clear button-positive" ng-click="hideModal()">Ακύρωση</button>
+    </div> -->
+    
+  </ion-header-bar>
+
+  <ion-content>
+
+  <div class="list">
+
+<!-- epilogh mesou -->
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Μέσο:
+    </div>
+    <select ng-model="data.mean">
+      <option selected>Μετρό</option>
+      <option>Λεωφορείο</option>
+      <option>Τραμ</option>
+      <option>Προαστιακός</option>
+    </select>
+  </label>
+
+</div>
+
+
+    <label class="item item-input">
+      <textarea 
+                ng-model="data.idea"
+                on-return="sendMessage(); closeKeyboard()"
+                on-focus="inputUp()"
+                on-blur="inputDown()"
+                dir="auto">
+      </textarea>
+    </label>
+
+
+
+    <div class="row">
+      <div class="col">
+        <button ng-click="sendMessage()" class="button button-full button-balanced">
+          Υποβολή
+        </button>
+      </div>
+      <div class="col">
+        <button ng-click="hideModal()" class="button button-full button-assertive">
+          Ακύρωση
+        </button>
+      </div>
+    </div>
+
+
+  </ion-content>
+ 
+</ion-modal-view>

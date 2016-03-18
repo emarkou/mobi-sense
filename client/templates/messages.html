@@ -1,0 +1,29 @@
+<ion-view view-title="Messages">
+  <ion-nav-buttons side="right">
+    <button ng-click="openNewMessageModal()" class="button button-clear button-positive button-icon ion-ios-compose-outline"></button>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <ion-list>
+      <ion-item
+              ng-repeat="message in messages"
+              class="item-chat item-remove-animate item-avatar item-icon-right"
+              type="item-text-wrap">
+        <img ng-src="{{userImg(message.userId)}}"/>                
+        <ng-switch on="message.type">
+          <h2 ng-switch-when="text">{{message.text}}</h2>
+          <h2 ng-switch-when="picture">image</h2>
+        </ng-switch>
+	
+	<a href="#/tab/replies/{{message._id}}"><p>100 replies <span class="ion-reply"></span></p></a> 
+       
+
+        <span class="last-message-timestamp">{{message.timestamp | calendar}}</span>
+
+        <i class="icon ion-chevron-right icon-accessory"></i> 
+          
+             
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

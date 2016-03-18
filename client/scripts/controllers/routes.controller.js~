@@ -1,0 +1,85 @@
+angular
+  .module('Buschat')
+  .controller('RoutesCtrl', RoutesCtrl);
+ 
+function RoutesCtrl ($scope, $meteor, $ionicScrollDelegate, $ionicModal, $reactive) {
+	$reactive($scope).attach($scope);
+	//https://github.com/Urigo/angular-meteor/issues/1237
+
+	$scope.search = {text: ''};
+	$scope.search_focus = false;	
+	$scope.route = {id: '237-20'};
+
+	$scope.subscribe('all-routes', function (){return []}, function(){
+		$scope.routes = $meteor.collection(function() {
+            return Routes.find({$or: [{route_short_name: { '$regex' : '.*' + $scope.getReactively("search.text")}}, 
+				{route_long_name: { '$regex' : '.*' + $scope.getReactively("search.text") }}]
+			});
+        });
+		var delegate = $ionicScrollDelegate.$getByHandle('myScroll');
+        delegate.resize();
+	});		
+
+	$scope.subscribe('get-stops', function(){
+		return [{route_id: $scope.getReactively("route.id")}];
+	}, function(){		
+		selected_route = $scope.$meteorCollection(function() {
+        	return Routes.find({route_id: $scope.getReactively("route.id")});
+        });
+        $scope.stops = selected_route[0].stops;
+        $scope.route = selected_route[0];
+        var delegate = $ionicScrollDelegate.$getByHandle('myScroll');
+        delegate.scrollTop();
+        delegate.resize();
+	});
+
+	$scope.toggle_search_focus = function(route_id){
+		console.log("toggle " + route_id);				
+		if (route_id != undefined){
+			$scope.route.id = route_id;
+		}
+		$scope.search_focus = !$scope.search_focus;			
+	}	
+
+	$ionicModal.fromTemplateUrl('client/templates/new-good.html', {
+	    scope: $scope
+	  }).then(function (modal) {
+	    $scope.modal1 = modal;
+	  });
+
+	 
+	$ionicModal.fromTemplateUrl('client/templates/new-bad.html', {
+	    scope: $scope
+	  }).then(function (modal) {
+	    $scope.modal2 = modal;
+	  });
+
+	 
+	$ionicModal.fromTemplateUrl('client/templates/new-idea.html', {
+	    scope: $scope
+	  }).then(function (modal) {
+	    $scope.modal3 = modal;
+	  });
+<<<<<<< HEAD
+
+	
+	  ////////////////
+=======
+	  //////////////
+>>>>>>> origin/master
+	  $scope.ShowModal1 = function (){
+	        $scope.modal1.show();
+	        var delegate = $ionicScrollDelegate.$getByHandle('myScroll');
+        	delegate.resize();
+	    }
+
+	    $scope.ShowModal2= function (){
+	         $scope.modal2.show()
+	    }
+
+	  $scope.ShowModal3= function (){
+	         $scope.modal3.show()
+	    }
+	  
+
+}

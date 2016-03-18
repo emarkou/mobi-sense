@@ -1,0 +1,55 @@
+<ion-view title="Replies">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear"><img class="header-picture" ng-src=""></button>
+  </ion-nav-buttons>
+  <ion-content class="chat" delegate-handle="replyScroll">
+    <ion-list>
+      <ion-item              
+              class="item-chat item-remove-animate item-avatar item-icon-right"
+              type="item-text-wrap"
+              ng-repeat="message in messages">
+        <img ng-src="{{userImg(message.userId)}}"/>                
+        <ng-switch on="message.type">
+          <h2 ng-switch-when="text">{{message.text}}</h2>
+          <h2 ng-switch-when="picture">image</h2>
+        </ng-switch>        
+        <span class="last-message-timestamp">{{message.timestamp | calendar}}</span>        
+      </ion-item>
+    </ion-list>
+    <div class="message-list">
+      <div ng-repeat="reply in replies" class="message-wrapper">
+        <div class="message" ng-class-odd="'message-mine'" ng-class-even="'message-other'">
+          <ng-switch on="reply.type">
+            <div ng-switch-when="text" class="text">{{reply.text}}</div>
+            <div ng-switch-when="picture" class="picture">
+              <img ng-src="{{reply.picture}}">
+            </div>
+          </ng-switch>
+          <span class="message-timestamp">{{reply.timestamp | amDateFormat: 'HH:MM'}}</span>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer-bar keyboard-attach class="bar-stable footer-chat item-input-inset">
+    <button class="button button-clear button-icon button-positive icon ion-ios-upload-outline"></button>
+
+    <label class="item-input-wrapper">
+      <input
+              ng-model="data.reply"
+              on-return="sendReply(); closeKeyboard()"
+              on-focus="inputUp()"
+              on-blur="inputDown()"
+              dir="auto"
+              type="text"/>
+    </label>
+
+    <span ng-if="data.reply.length > 0">
+      <button ng-click="sendReply()" class="button button-clear button-positive">Send</button>
+    </span>
+    <span ng-if="!data.reply || data.reply.length === 0">
+      <button ng-click="sendPicture()" class="button button-clear button-icon button-positive icon ion-ios-camera-outline"></button>
+      <i class="buttons-seperator icon ion-android-more-vertical"></i>
+      <button class="button button-clear button-icon button-positive icon ion-ios-mic-outline"></button>
+    </span>
+  </ion-footer-bar>
+</ion-view>

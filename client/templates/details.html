@@ -1,0 +1,58 @@
+<ion-modal-view ng-controller="NewDetailCtrl">
+  <ion-header-bar>
+    <h1 class="title">Λεπτομέρειες</h1>
+    <div class="buttons">
+      <button class="button button-clear button-positive" ng-click="hideModal()">Ακύρωση</button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content>
+    <label class="item item-input">
+      <div class="list">
+
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Είδος δρομολογίου
+    </div>
+    <select>
+      <option selected>Αδιάφορο</option>
+      <option>Μετρό</option>
+      <option>Λεωφορείο</option>
+      <option>Τραμ</option>
+      <option>Προαστιακός</option>
+    </select>
+  </label>
+
+</div>
+    Αριθμός γραμμής:
+      <textarea placeholder="Γραμμή"
+                ng-model="data.idea"
+                on-return="sendMessage(); closeKeyboard()"
+                on-focus="inputUp()"
+                on-blur="inputDown()"
+                dir="auto">
+      </textarea>
+      Στάση:
+      <textarea placeholder="Στάση"
+                ng-model="data.idea"
+                on-return="sendMessage(); closeKeyboard()"
+                on-focus="inputUp()"
+                on-blur="inputDown()"
+                dir="auto">
+      </textarea>
+
+    </label>
+  </ion-content>
+  <ion-footer-bar keyboard-attach class="bar-stable footer-chat item-input-inset">
+    <button class="button button-clear button-icon button-positive icon ion-ios-upload-outline"></button>
+
+    <span ng-if="data.idea.length > 0">
+      <button ng-click="sendMessage()" class="button button-clear button-positive">Send</button>
+    </span>
+    <span ng-if="!data.idea || data.idea.length === 0">
+      <button ng-click="sendPicture()" class="button button-clear button-icon button-positive icon ion-ios-camera-outline"></button>
+      <i class="buttons-seperator icon ion-android-more-vertical"></i>
+      <button class="button button-clear button-icon button-positive icon ion-ios-mic-outline"></button>
+    </span>
+  </ion-footer-bar>
+</ion-modal-view>

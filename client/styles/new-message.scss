@@ -1,0 +1,58 @@
+textarea {
+ vertical-align: middle;
+// width: 600px;
+ height: 130px;
+ font: normal 15px verdana;
+
+ line-height: 15px;
+// padding: 2px 10px;
+ border: dashed 2px #ccc;
+}
+
+::-webkit-input-placeholder {
+ font-size: 25px;
+ color: #d0cdfa;
+ text-align: center;
+ font-weight: bold;
+}
+
+::-moz-placeholder {
+ font-size: 25px;
+ color: #d0cdfa;
+ text-align: center;
+ font-weight: bold;
+}
+
+$light: hsla(101, 72%, 37%, 1);  // green
+$warning: #ffc53a;                 // yellow
+$alert: rgb(172, 34, 34);          // red
+$bright: #ffffff;
+$blue: rgb(56, 126, 245);
+.float-button {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  width: 30px;
+  padding: 30px;
+  font-size: 30px;
+  background: $blue;
+  position: fixed;
+  bottom: 90px; /* Adjust to where you want it */
+  right: 20px; /* Adjust to where you want it */
+  z-index: 9999;
+}
+
+.float-button .height_fix {
+  margin-top: 100%;
+}
+
+.float-button .content {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  margin-top: -15px; /* Note, this must be half the font size */
+  color: $bright;
+}

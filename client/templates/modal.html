@@ -1,0 +1,53 @@
+<ion-modal-view ng-controller="ModalCtrl">
+  <ion-header-bar>
+    <h1 class="title">Νέα Αναφορά</h1>
+    <div class="buttons">
+      <button class="button button-clear button-positive" ng-click="hideModal()">Ακύρωση</button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content>
+<div class="list">
+
+<!-- epilogh mesou -->
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Μέσο:
+    </div>
+    <select ng-model="data.mean">
+      <option selected>Μετρό</option>
+      <option>Λεωφορείο</option>
+      <option>Τραμ</option>
+      <option>Προαστιακός</option>
+    </select>
+  </label>
+
+</div>
+<!-- epilogh grammhs -->
+<div class="list">
+
+  <div class="item item-input-inset">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="Γραμμή" ng-model="data.line">
+    </label>
+    
+  </div>
+
+</div>
+
+<!-- epilogh vathmologias -->
+
+<div class="item range">
+  <i class="icon ion-volume-low"></i>
+  <input type="range" name="rating" min="0" max="5" value="3">
+  <i class="icon ion-volume-high"></i>
+</div>
+
+ <span ng-if="data.message.length > 0">
+      <button ng-click="sendMessage()" class="button button-clear button-positive">Send</button>
+    </span>
+
+
+  </ion-content>
+  </ion-modal-view>
+ 
